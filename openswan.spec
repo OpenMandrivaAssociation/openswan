@@ -21,7 +21,6 @@ BuildRequires:	bison
 BuildRequires:	gmp-devel
 BuildRequires:	pam-devel
 BuildRequires:	dos2unix
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 Openswan is a free implementation of IPSEC & IKE for Linux, a fork of the 
