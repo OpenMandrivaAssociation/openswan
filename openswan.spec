@@ -89,7 +89,7 @@ rm -rf %{buildroot}
     FINALLIBDIR=%{_libdir}/ipsec \
     install
 
-install -d -m700 %{buildroot}%{_localstatedir}/run/pluto
+install -d -m700 %{buildroot}%{_localstatedir}/lib/run/pluto
 install -d %{buildroot}%{_sbindir}
 
 # Remove old documentation for the time being.
@@ -118,7 +118,7 @@ rm -rf %{buildroot}
 %{_sbindir}/ipsec
 %dir %{_libdir}/ipsec
 %{_libdir}/ipsec/*
-%{_localstatedir}/run/pluto
+%{_localstatedir}/lib/run/pluto
 %{_mandir}/*/*
 
 %files doc
