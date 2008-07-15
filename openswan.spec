@@ -3,14 +3,14 @@
 
 Summary:	An implementation of IPSEC & IKE for Linux
 Name:		openswan
-Version:	2.4.12
+Version:	2.6.14
 Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
 URL:		http://www.openswan.org/
 Source0:	http://www.openswan.org/code/openswan-%{version}.tar.gz
 Source1:	http://www.openswan.org/code/openswan-%{version}.tar.gz.asc
-Patch1:		openswan-2.4.7-manfix.patch
+Patch1:		openswan-2.6.14-manfix.patch
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 Provides:	ipsec-userland
