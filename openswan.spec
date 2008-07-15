@@ -21,6 +21,7 @@ BuildRequires:	bison
 BuildRequires:	gmp-devel
 BuildRequires:	pam-devel
 BuildRequires:	dos2unix
+BuildRequires:	flex
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
