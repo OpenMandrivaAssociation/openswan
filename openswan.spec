@@ -98,6 +98,7 @@ rm -rf %{buildroot}%{_defaultdocdir}/freeswan
 
 # cleanup
 rm -rf %{buildroot}%{_sysconfdir}/rc.d/rc*
+rm -rf %{buildroot}%{_sysconfdir}/rc.d/init.d/setup
 rm -rf %{buildroot}%{_docdir}/%{name}
 
 %preun
