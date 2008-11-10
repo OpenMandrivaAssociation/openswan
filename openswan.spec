@@ -3,7 +3,7 @@
 
 Summary:	An implementation of IPSEC & IKE for Linux
 Name:		openswan
-Version:	2.6.16
+Version:	2.6.18
 Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
@@ -25,18 +25,18 @@ BuildRequires:	flex
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
-Openswan is a free implementation of IPSEC & IKE for Linux, a fork of the 
+Openswan is a free implementation of IPSEC & IKE for Linux, a fork of the
 FreeS/WAN project.
 
-IPSEC is Internet Protocol Security and uses strong cryptography to 
-provide both authentication and encryption services.  These services 
-allow you to build secure tunnels through untrusted networks.  
-Everything passing through the untrusted net is encrypted by the ipsec 
-gateway machine and decrypted by the gateway at the other end of the 
+IPSEC is Internet Protocol Security and uses strong cryptography to
+provide both authentication and encryption services.  These services
+allow you to build secure tunnels through untrusted networks.
+Everything passing through the untrusted net is encrypted by the ipsec
+gateway machine and decrypted by the gateway at the other end of the
 tunnel.  The resulting tunnel is a virtual private network or VPN.
 
 This package contains the daemons and userland tools for setting up
-Openswan on a kernel with either the 2.6 native IPsec code, or 
+Openswan on a kernel with either the 2.6 native IPsec code, or
 FreeS/WAN's KLIPS.
 
 %package	doc
@@ -112,7 +112,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc BUGS CHANGES COPYING CREDITS README 
+%doc BUGS CHANGES COPYING CREDITS README
 %attr(0755,root,root) %{_initrddir}/ipsec
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/%{name}/ipsec.conf
 %attr(0700,root,root) %dir %{_sysconfdir}/%{name}/ipsec.d
