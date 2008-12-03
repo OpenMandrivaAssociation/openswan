@@ -22,6 +22,7 @@ BuildRequires:	gmp-devel
 BuildRequires:	pam-devel
 BuildRequires:	dos2unix
 BuildRequires:	flex
+BuildRequires:  xmlto
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
