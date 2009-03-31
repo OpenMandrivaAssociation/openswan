@@ -3,14 +3,15 @@
 
 Summary:	An implementation of IPSEC & IKE for Linux
 Name:		openswan
-Version:	2.6.19
+Version:	2.6.21
 Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
 URL:		http://www.openswan.org/
 Source0:	http://www.openswan.org/code/openswan-%{version}.tar.gz
 Source1:	http://www.openswan.org/code/openswan-%{version}.tar.gz.asc
-Patch1:		openswan-2.6.14-manfix.patch
+Patch0:		openswan-2.6.14-manfix.patch
+Patch1:		openswan-2.6.21-format_not_a_string_literal_and_no_format_arguments.diff
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 Provides:	ipsec-userland
@@ -53,7 +54,8 @@ This is the documentation for Openswan.
 %prep
 
 %setup -q -n openswan-%{version}
-%patch1 -p1 -b .manfix
+%patch0 -p0 -b .manfix
+%patch1 -p0 -b .format_not_a_string_literal_and_no_format_arguments
 
 find . -type f -name "*.html" -exec dos2unix -U {} \;
 
