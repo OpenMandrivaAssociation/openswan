@@ -24,6 +24,7 @@ BuildRequires:	pam-devel
 BuildRequires:	dos2unix
 BuildRequires:	flex
 BuildRequires:  xmlto
+BuildRequires:	docbook-dtd412-xml
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
