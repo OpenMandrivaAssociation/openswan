@@ -3,7 +3,7 @@
 
 Summary:	An implementation of IPSEC & IKE for Linux
 Name:		openswan
-Version:	2.6.21
+Version:	2.6.22
 Release:	%mkrel 1
 License:	GPL
 Group:		System/Servers
@@ -64,10 +64,10 @@ find . -type f -name "*.html" -exec dos2unix -U {} \;
 %serverbuild
 
 find . -name "Makefile*" | xargs perl -pi -e "s|libexec|%{_lib}|g"
-
+export CLFAGS=$(echo %{optflags} -fno-strict-aliasing)
 # the %make macro doesn't seem to work
 make \
-    USERCOMPILE="-g %{optflags}" \
+    USERCOMPILE="-g $CLFAGS" \
     INC_USRLOCAL=%{_prefix} \
     MANTREE=%{_mandir} \
     INC_RCDEFAULT=%{_initrddir} \
