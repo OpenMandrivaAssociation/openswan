@@ -4,7 +4,7 @@
 Summary:	An implementation of IPSEC & IKE for Linux
 Name:		openswan
 Version:	2.6.24
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.openswan.org/
