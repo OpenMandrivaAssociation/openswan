@@ -4,7 +4,7 @@
 Summary:	An implementation of IPSEC & IKE for Linux
 Name:		openswan
 Version:	2.6.28
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.openswan.org/
@@ -15,6 +15,7 @@ Patch1:		openswan-2.6.21-format_not_a_string_literal_and_no_format_arguments.dif
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 Provides:	ipsec-userland
+Requires:	lsof
 Requires:	iproute2
 Requires:	ipsec-tools
 Conflicts:	freeswan
