@@ -130,4 +130,3 @@ rm -rf %{buildroot}
 
 %files doc
 %defattr(-,root,root)
-%doc doc/*
