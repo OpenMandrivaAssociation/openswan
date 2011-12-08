@@ -59,7 +59,7 @@ This is the documentation for Openswan.
 %patch0 -p0 -b .manfix
 # %patch1 -p0 -b .format_not_a_string_literal_and_no_format_arguments
 
-find . -type f -name "*.html" -exec dos2unix -U {} \;
+find . -type f -name "*.html" -exec dos2unix {} \;
 
 %build
 
