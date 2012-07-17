@@ -1,32 +1,32 @@
-%define _enable_debug_packages %{nil}
-%define debug_package %{nil}
-
 Summary:	An implementation of IPSEC & IKE for Linux
 Name:		openswan
-Version:	2.6.37
-Release:	%mkrel 1
+Version:	2.6.38
+Release:	1
 License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.openswan.org/
 Source0:	http://www.openswan.org/download/openswan-%{version}.tar.gz
 Source1:	http://www.openswan.org/download/openswan-%{version}.tar.gz.asc
 Patch0:		openswan-2.6.28-manfix.patch
-Patch1:		openswan-2.6.21-format_not_a_string_literal_and_no_format_arguments.diff
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 Provides:	ipsec-userland
-Requires:	lsof
-Requires:	iproute2
-Requires:	ipsec-tools
-Conflicts:	freeswan
 BuildRequires:	bison
-BuildRequires:	gmp-devel
-BuildRequires:	pam-devel
+BuildRequires:	curl-devel
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	dos2unix
 BuildRequires:	flex
+BuildRequires:	gmp-devel
+BuildRequires:	libcap-ng-devel
+BuildRequires:	openldap-devel
+BuildRequires:	pam-devel
 BuildRequires:  xmlto
-BuildRequires:	docbook-dtd412-xml
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+Requires:	curl
+Requires:	iproute2
+Requires:	ipsec-tools
+Requires:	lsof
+Requires:	openldap
+Conflicts:	freeswan
 
 %description
 Openswan is a free implementation of IPSEC & IKE for Linux, a fork of the
@@ -46,6 +46,7 @@ FreeS/WAN's KLIPS.
 %package	doc
 Summary:	An implementation of IPSEC & IKE for Linux
 Group:		System/Servers
+BuildArch:	noarch
 
 %description	doc
 Openswan is a free implementation of IPSEC & IKE for Linux, a fork of the
@@ -57,7 +58,6 @@ This is the documentation for Openswan.
 
 %setup -q -n openswan-%{version}
 %patch0 -p0 -b .manfix
-# %patch1 -p0 -b .format_not_a_string_literal_and_no_format_arguments
 
 find . -type f -name "*.html" -exec dos2unix {} \;
 
@@ -78,12 +78,15 @@ make \
     FINALCONFFILE=%{_sysconfdir}/%name/ipsec.conf \
     FINALLIBEXECDIR=%{_libdir}/ipsec \
     FINALLIBDIR=%{_libdir}/ipsec \
+    USE_LIBCAP_NG=true \
+    USE_LDAP=true \
+    USE_LIBCURL=true \
+    HAVE_THREADS=true \
     programs
 
 %install
-rm -rf %{buildroot}
 
-%{make} \
+make \
     DESTDIR=%{buildroot} \
     INC_USRLOCAL=%{_prefix} \
     MANTREE=%{buildroot}%{_mandir} \
@@ -112,15 +115,13 @@ rm -rf %{buildroot}%{_docdir}/%{name}
 %post
 %_post_service ipsec
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc BUGS CHANGES COPYING CREDITS README
 %attr(0755,root,root) %{_initrddir}/ipsec
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/%{name}/ipsec.conf
 %attr(0700,root,root) %dir %{_sysconfdir}/%{name}/ipsec.d
+%attr(0700,root,root) %dir %{_sysconfdir}/%{name}/ipsec.d/examples
+%attr(0700,root,root) %dir %{_sysconfdir}/%{name}/ipsec.d/policies
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/%{name}/ipsec.d/*/*
 %{_sbindir}/ipsec
 %dir %{_libdir}/ipsec
@@ -129,4 +130,5 @@ rm -rf %{buildroot}
 %{_mandir}/*/*
 
 %files doc
-%defattr(-,root,root)
+%doc docs/README.* docs/CREDITS.* docs/*.txt
+%doc docs/quickstarts docs/html-old-need-merge-with-wiki
