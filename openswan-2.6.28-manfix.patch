@@ -1,0 +1,11 @@
+--- programs/spi/spi.8	2010-07-29 20:45:59.000000000 +0200
++++ programs/spi/spi.8.dlucio	2010-09-03 02:34:15.000000000 +0200
+@@ -368,7 +368,7 @@
+ (4)\&.
+ .SH "FILES"
+ .PP
+-/proc/net/ipsec_spi, /usr/local/bin/ipsec
++/proc/net/ipsec_spi, /usr/sbin/ipsec
+ .SH "SEE ALSO"
+ .PP
+ ipsec(8), ipsec_manual(8), ipsec_tncfg(8), ipsec_eroute(8), ipsec_spigrp(8), ipsec_klipsdebug(8), ipsec_spi(5)
