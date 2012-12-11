@@ -132,3 +132,88 @@ rm -rf %{buildroot}%{_docdir}/%{name}
 %files doc
 %doc docs/README.* docs/CREDITS.* docs/*.txt
 %doc docs/quickstarts docs/html-old-need-merge-with-wiki
+
+
+%changelog
+* Tue Jul 17 2012 Oden Eriksson <oeriksson@mandriva.com> 2.6.38-1
++ Revision: 809978
+- 2.6.38
+- sync deps slipthly with fedora
+- various fixes
+
+* Tue Nov 08 2011 Alexander Khrukin <akhrukin@mandriva.org> 2.6.37-1
++ Revision: 729094
+- update to 2.6.37 upstream release
+
+* Sat Oct 22 2011 Zombie Ryushu <ryushu@mandriva.org> 2.6.36-1
++ Revision: 705678
+- fix docdir
+- fix deprecated patch
+- Upgrade to 2.6.36
+
+* Fri Sep 03 2010 Luis Daniel Lucio Quiroz <dlucio@mandriva.org> 2.6.28-2mdv2011.0
++ Revision: 575574
+- lsof as require
+- 2.6.28
+  P0 rediffed
+
+* Wed Feb 10 2010 Funda Wang <fwang@mandriva.org> 2.6.24-2mdv2010.1
++ Revision: 503615
+- rebuild for new gmp
+
+* Tue Jan 19 2010 Frederik Himpe <fhimpe@mandriva.org> 2.6.24-1mdv2010.1
++ Revision: 493791
+- Update to new version 2.6.24
+
+* Sat Nov 07 2009 Frederik Himpe <fhimpe@mandriva.org> 2.6.23-1mdv2010.1
++ Revision: 462705
+- Update to new version 2.6.23
+
+* Thu Jun 25 2009 Frederik Himpe <fhimpe@mandriva.org> 2.6.22-1mdv2010.0
++ Revision: 389267
+- BuildRequires docbook-dtd412-xml for documentation
+- Update to new version 2.6.22
+- Build with -fno-strict-aliasing, otherwise it fails
+
+* Tue Mar 31 2009 Oden Eriksson <oeriksson@mandriva.com> 2.6.21-1mdv2009.1
++ Revision: 362883
+- 2.6.21 (fixes CVE-2009-0790)
+- rediffed P0
+- added P1 to fix build with -Werror=format-security
+
+* Wed Dec 03 2008 Jérôme Soyer <saispo@mandriva.org> 2.6.19-1mdv2009.1
++ Revision: 309656
+- Add BuildRequires
+- New release 2.6.19
+
+* Mon Nov 10 2008 Michael Scherer <misc@mandriva.org> 2.6.18-1mdv2009.1
++ Revision: 301689
+- upgrade to 2.6.18
+- clean end of line ( automatic with vim )
+
+* Mon Sep 01 2008 Olivier Blin <blino@mandriva.org> 2.6.16-1mdv2009.0
++ Revision: 278117
+- 2.6.16
+
+* Tue Jul 15 2008 Funda Wang <fwang@mandriva.org> 2.6.14-1mdv2009.0
++ Revision: 235755
+- drop unneeded setup file
+- BR flex
+- New version 2.6.14
+- rediff man-fix patch
+
+  + Pixel <pixel@mandriva.com>
+    - adapt to %%_localstatedir now being /var instead of /var/lib (#22312)
+
+* Sat Mar 01 2008 Olivier Blin <blino@mandriva.org> 2.4.12-1mdv2008.1
++ Revision: 177431
+- 2.4.12
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Fri May 25 2007 Olivier Blin <blino@mandriva.org> 2.4.8-1mdv2008.0
++ Revision: 31108
+- 2.4.8 (from Zombie Ryushu)
+
