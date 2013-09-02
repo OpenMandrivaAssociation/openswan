@@ -1,12 +1,13 @@
 Summary:	An implementation of IPSEC & IKE for Linux
 Name:		openswan
-Version:	2.6.38
+Version:	2.6.39
 Release:	1
 License:	GPLv2+
 Group:		System/Servers
 URL:		http://www.openswan.org/
 Source0:	http://www.openswan.org/download/openswan-%{version}.tar.gz
 Source1:	http://www.openswan.org/download/openswan-%{version}.tar.gz.asc
+Source2:	openswan.service
 Patch0:		openswan-2.6.28-manfix.patch
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
@@ -109,15 +110,21 @@ rm -rf %{buildroot}%{_sysconfdir}/rc.d/rc*
 rm -rf %{buildroot}%{_sysconfdir}/rc.d/init.d/setup
 rm -rf %{buildroot}%{_docdir}/%{name}
 
+install -Dm644 %{SOURCE2} %{buildroot}%{_unitdir}/openswan.service
+mkdir -p %{buildroot}%{_prefix}/lib/systemd/scripts/
+mv %{buildroot}/%{_initrddir}/ipsec %{buildroot}/%{_prefix}/lib/systemd/scripts/
+
+
 %preun
-%_preun_service ipsec
+%_preun_service %{name}
 
 %post
-%_post_service ipsec
+%_post_service %{name}
 
 %files
 %doc BUGS CHANGES COPYING CREDITS README
-%attr(0755,root,root) %{_initrddir}/ipsec
+%{_unitdir}/%{name}.service
+%{_prefix}/lib/systemd/scripts/ipsec
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/%{name}/ipsec.conf
 %attr(0700,root,root) %dir %{_sysconfdir}/%{name}/ipsec.d
 %attr(0700,root,root) %dir %{_sysconfdir}/%{name}/ipsec.d/examples
