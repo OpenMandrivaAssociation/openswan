@@ -1,5 +1,6 @@
 removed_sources:
-  openswan-2.6.38.tar.gz: 39fa279d43aa1ea736ad1a70450b7bc0504c96eb
-sources:
   openswan-2.6.39.tar.gz: 0100c226ef82222243aba74deeb47bead594fbc2
+sources:
   openswan-2.6.39.tar.gz.asc: 74917d65f6bcdc66d84ca76a14a7ed323b9344eb
+  openswan-2.6.41.tar.gz: 98089d87b361184b1667e8c0e1975d7707b0ee1b
+  openswan-2.6.41.tar.gz.asc: 4cbcec60fa1ac7b8813d4bda975c18a722bad0c1
