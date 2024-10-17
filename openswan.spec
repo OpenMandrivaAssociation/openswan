@@ -6,7 +6,7 @@ Version:	2.6.41
 Release:	2
 License:	GPLv2+
 Group:		System/Servers
-Url:		http://www.openswan.org/
+Url:		https://www.openswan.org/
 Source0:	http://www.openswan.org/download/openswan-%{version}.tar.gz
 Source1:	http://www.openswan.org/download/openswan-%{version}.tar.gz.asc
 Source2:	openswan.service
